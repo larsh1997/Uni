@@ -4,37 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
-      <y>0</y>
-      <w>480</w>
-      <h>260</h>
-    </coordinates>
-    <panel_attributes>Lernveranstaltung
-
---
-name: String
-Lerndokumente: Sammlung&lt;Lerndokument&gt;
---
-Lernveranstaltung(name:String)
-gibName(): String
-DokumentEintragen(Id: Lerndokument)
-DokumentLoeschen(name: String): Lerndokument
-gibAnzahlDokumente(): int 
-gibDokument(): Lerndokument
-gibDokument(name: String): Lerndokument
-gibDokument(kategorie: Kategorie): Sammlung&lt;Lerndokuemnt&gt;
-gibDokumentSeit(datum: Date): Sammlung&lt;Lerndokument&gt;
-gibAusarbeitungenZeit(datum: Date): Sammlung&lt;Lerndokument&gt;
-findeLerndokumentZurAusarbeitung(ausa: Lerndokument): Lerndokument
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>570</x>
-      <y>0</y>
+      <x>530</x>
+      <y>100</y>
       <w>480</w>
       <h>440</h>
     </coordinates>
@@ -71,8 +42,8 @@ gibAnzahlBewertung(): int  </panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>120</y>
+      <x>480</x>
+      <y>220</y>
       <w>70</w>
       <h>30</h>
     </coordinates>
@@ -82,8 +53,8 @@ gibAnzahlBewertung(): int  </panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>120</y>
+      <x>480</x>
+      <y>220</y>
       <w>70</w>
       <h>30</h>
     </coordinates>
@@ -93,8 +64,8 @@ gibAnzahlBewertung(): int  </panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>430</y>
+      <x>350</x>
+      <y>530</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
@@ -110,8 +81,8 @@ main
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
-      <y>410</y>
+      <x>190</x>
+      <y>510</y>
       <w>140</w>
       <h>150</h>
     </coordinates>
@@ -128,8 +99,8 @@ HTML
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>410</y>
+      <x>0</x>
+      <y>510</y>
       <w>160</w>
       <h>130</h>
     </coordinates>
@@ -140,6 +111,35 @@ SKRIPT, KLAUSUR,
 UEBUNGSBLATT,
 AUSARBEITUNG
 --
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>120</y>
+      <w>480</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>Lernveranstaltung
+
+--
+name: String
+Lerndokumente: Sammlung&lt;Lerndokument&gt;
+--
+Lernveranstaltung(name:String)
+gibName(): String
+DokumentEintragen(Id: Lerndokument)
+DokumentLoeschen(name: String): Lerndokument
+gibAnzahlDokumente(): int 
+gibDokument(): Lerndokument
+gibDokument(name: String): Lerndokument
+gibDokument(kategorie: Kategorie): Sammlung&lt;Lerndokuemnt&gt;
+gibDokumentSeit(datum: Date): Sammlung&lt;Lerndokument&gt;
+gibAusarbeitungenSeit(datum: Date): Sammlung&lt;Lerndokument&gt;
+findeLerndokumentZurAusarbeitung(ausa: Lerndokument): Lerndokument
+
 </panel_attributes>
     <additional_attributes/>
   </element>
