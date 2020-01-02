@@ -113,7 +113,7 @@ public class Lerndokument {
 	 * 
 	 */
 	public void ausarbeitungEintragen(Lerndokument ausa) {
-		ausarbeitungen.put(name, ausa);
+		ausarbeitungen.put(ausa.gibName(), ausa);
 	}
 	
 	
@@ -122,14 +122,66 @@ public class Lerndokument {
 	 * 
 	 * @return 		Alle Ausarbeitungen
 	 */
-	public ausarbeitungen gibAusarbeitungen() {
+	public TreeMap<String, Lerndokument> gibAusarbeitungen() {
 		
-		for (String x : ausarbeitungen.keySet()) {
-			return(ausarbeitungen.get(x));
+		//for (String x : ausarbeitungen.keySet()) {
+			//return(ausarbeitungen.get(x));
+			//System.out.println(ausarbeitungen.get(x));
+		return ausarbeitungen;
 		}
-		
 	
+	/*
+	 * Gibt Ausarbeitungen seit einem gegebenem Datum wieder
+	 * 
+	 * @para	datum	Gewünschtes Datum ab dem die Ausarbeitungen 
+	 * 					wiedergegeben werden sollen
+	 * @return 			Alle Ausarbeitungen seit gegebenem Datum
+	 */
+	public TreeMap<String, Lerndokument> gibAusarbeitungenSeit(LocalDateTime date) {
+		
+		 ///////////////////////////   siehe Testing/Testingja
+	}
+		
+	/*
+	 * Gibt eine gesuchte Ausarbeitung wieder
+	 * 
+	 * @para	name	Name der gesuchten ausarbeitung 
+	 * 
+	 * @return			Ausarbeitung
+	 */
+	 public Lerndokument gibAusarbeitung (String name) {
+	    	return ausarbeitungen.get(name);
+	    }
+	 /*
+	  * Lerndokument bewerten
+	  * 
+	  * @para 	anzahlSterne 	Anzahl an Sternen die man geben will
+	  */ 
+	 public void bewerte (int anzahlSterne) {
+		 anzahlBewertungen++;
+		 bewertung = (bewertung + anzahlSterne)/anzahlBewertungen;
+		
+	 }
+	 
+	 
+	 /*
+	  * Gibt die Bewertung eines Lerndokumentes zurück
+	  * 
+	  * @return			Bewertung eines Lerndokumentes
+	  */ 
+	 public double gibBewertung() {
+		 return bewertung;
+	 }
+	 
+	 /*
+	  * Anzahl der abgegebenen Bewertungen wiedergeben
+	  * 
+	  * @return 	int 	Anzahl der Bewertungen
+	  */
+	 public int gibAnzahlBewertungen() {
+		 return anzahlBewertungen;
+	 }
 		
 		
 	}
-}
+

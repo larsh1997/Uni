@@ -35,14 +35,34 @@ public class Lehrveranstaltungen {
 	}
 	
 	/*
+	 * Lerndokument eintragen
 	 * 
+	 * @para	Lerndokument 	
 	 * 
 	 */
+	public void lerndokumentEintragen(Lerndokument ld) {
+		
+		assert ld != null;
+		lerndokumente.put(ld.gibName(), ld);  //ld.gibName() = key, ld = value;
+	}
 	
+	/*
+	 * Lerndokument löschen
+	 * 
+	 * @para 	String 	Name des zulöschenden Lerndokumentes
+	 * 
+	 * @return			Lerndokument
+	 */
+	public Lerndokument lerndokumentLoeschen(String name) {
+		
+		return lerndokumente.remove(name);
+			
+	}
 	
 	
 	/*
 	 * Gibt die Anzahl der Lerndokumte wieder (Größe der TreeMap)
+	 * 
 	 * @return		Anzahl der Lerndokumente
 	 */
 	public int gibAnzahlLerndokumente()
@@ -56,8 +76,8 @@ public class Lehrveranstaltungen {
 	 * Gibt das Lerndokument mit gegebenem Namen zurück
 	 * 
 	 * @param 	name	Name des gesuchten Dokumentes 
-	 * @return			Das Dokumente mit dem gegebenem Namen, oder null, falls nicht vorhanden 
 	 * 
+	 * @return			Das Dokumente mit dem gegebenem Namen, oder null, falls nicht vorhanden  
 	 */
 	public Lerndokument gibtLerndokument(String name)
 	{
@@ -77,15 +97,53 @@ public class Lehrveranstaltungen {
 	{
 		TreeMap<String, Lerndokument> resultmap = new TreeMap<>();
 		if(kat != Kategorie.AUSARBEITUNG) {
-			lerndokumente.forEach((k,v) -> {if (v.gibKategorie() == kat) resultmap.put(k,v);});
+			lerndokumente.forEach(
+					(k,v) -> {if (v.gibKategorie() == kat) resultmap.put(k,v);});
 		} else { //Kategorie = Ausarbeitung
-		lerndokumente.forEach((k,v) -> resultmap.putAll(v.gibAusarbeitung()));
+		lerndokumente.forEach(
+				(k,v) -> resultmap.putAll(v.gibAusarbeitungen()));
 		}
 		
-		return resultmap;
-			
+		return resultmap;		
+	}
+	
+	
+	/*
+	 * Gibt ein Lerndokument seit einem bestimmen Datum zurück
+	 * 
+	 * @para	LocalDateTime	Datum ab welchem die Dokumente wiedergegeben werden sollen
+	 * 
+	 * @return			Die gesuchten Lerndokumente
+	 */
+	
+	public TreeMap<String, Lerndokument> gibLerndokumenteSeit(LocalDateTime date) {
+			/////////
+	}
+	
+	/*
+	 * Gibt Ausarbeitungen seit einem gegebenem Datum wieder
+	 * 
+	 * @para	datum	Gewünschtes Datum ab dem die Ausarbeitungen 
+	 * 					wiedergegeben werden sollen
+	 * @return 			Alle Ausarbeitungen seit gegebenem Datum
+	 */
+	public TreeMap<String, Lerndokument> gibAusarbeitungenSeit(LocalDateTime date) {
 		
+		 ///////////////////////////   siehe Testing/Testingja
+	}
+	
+	
+	/*
+	 * Findet ein Lerndokument zu einer gegebenen Ausarbeitung
+	 * 
+	 * @para	Lerndokument	
+	 * 
+	 * @return					Lerndokument zur Arbeitung
+	 */
+	public Lerndokument findeLerndokumentZurAusarbeitung(Lerndokument ausa) {
+		//////
 	}
 
+	
 }
 
