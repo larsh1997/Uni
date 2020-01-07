@@ -5,6 +5,7 @@ import java.time.*;
 /*
  * Die Klasse Lehrveranstaltungen beschreibt Lehrveranstaltungen und verweist auf dazugehörende Lerndokumente.
  */
+import java.time.format.DateTimeFormatter;
 
 public class Lehrveranstaltungen {
 	
@@ -85,6 +86,17 @@ public class Lehrveranstaltungen {
 	}
 	
 	
+	/*
+	 * Gibt alle Lerndokumente zurück
+	 * 
+	 * @return			Alle Lerndokumente
+	 */
+	public TreeMap<String,Lerndokument> gibLerndokumente() {
+		
+		return lerndokumente;
+	}
+	
+	
 	
 	/*
 	 * Gibt die Lerndokumente einer gegebenen Kategorie zurück
@@ -117,7 +129,20 @@ public class Lehrveranstaltungen {
 	 */
 	
 	public TreeMap<String, Lerndokument> gibLerndokumenteSeit(LocalDateTime date) {
-			/////////
+		
+		TreeMap<String, Lerndokument> resultmapTime = new TreeMap<>();   
+		
+		LocalDateTime lerndokumenteSeit = date;
+		if (lerndokumenteSeit != null){
+		lerndokumente.forEach(
+				(k,v) -> {if (v.gibDatum().isAfter(lerndokumenteSeit)) resultmapTime.put(k,v);});
+		} else {
+			throw new NullPointerException ("Es wurde kein Datum angegeben");
+		}
+			
+		return resultmapTime;
+		
+		
 	}
 	
 	/*
@@ -129,9 +154,19 @@ public class Lehrveranstaltungen {
 	 */
 	public TreeMap<String, Lerndokument> gibAusarbeitungenSeit(LocalDateTime date) {
 		
-		 ///////////////////////////   siehe Testing/Testingja
+		TreeMap<String, Lerndokument> resultmapTime = new TreeMap<>();   
+		
+		LocalDateTime ausarbeitungenSeit = date;
+		if (ausarbeitungenSeit != null)  {
+		lerndokumente.forEach(
+				(k,v) -> {if ((v.gibDatum().isAfter(ausarbeitungenSeit)) && (v.gibKategorie() == Kategorie.AUSARBEITUNG)) resultmapTime.put(k,v);});
+		} else {
+			throw new NullPointerException ("Es wurde kein zulässiges Datum eingegeben");
+		}
+			
+		return resultmapTime;
 	}
-	
+
 	
 	/*
 	 * Findet ein Lerndokument zu einer gegebenen Ausarbeitung
@@ -141,7 +176,7 @@ public class Lehrveranstaltungen {
 	 * @return					Lerndokument zur Arbeitung
 	 */
 	public Lerndokument findeLerndokumentZurAusarbeitung(Lerndokument ausa) {
-		//////
+		
 	}
 
 	

@@ -13,9 +13,9 @@ public class Benutzerschnittstelle {
 		
 		System.out.println("Willkommen bei der Lernmaschine!");
 		
-		do {
+		
 			
-		}
+		
 	}
 
 }

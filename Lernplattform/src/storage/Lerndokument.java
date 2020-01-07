@@ -113,7 +113,13 @@ public class Lerndokument {
 	 * 
 	 */
 	public void ausarbeitungEintragen(Lerndokument ausa) {
+		
+		if (ausa.kategorie != Kategorie.AUSARBEITUNG) {
+			throw new IllegalArgumentException("Das Lerndokument ist nicht vom Typen Ausarbeitung");
+		}
+		
 		ausarbeitungen.put(ausa.gibName(), ausa);
+	
 	}
 	
 	
@@ -124,9 +130,8 @@ public class Lerndokument {
 	 */
 	public TreeMap<String, Lerndokument> gibAusarbeitungen() {
 		
-		//for (String x : ausarbeitungen.keySet()) {
-			//return(ausarbeitungen.get(x));
-			//System.out.println(ausarbeitungen.get(x));
+		
+		
 		return ausarbeitungen;
 		}
 	
@@ -139,8 +144,20 @@ public class Lerndokument {
 	 */
 	public TreeMap<String, Lerndokument> gibAusarbeitungenSeit(LocalDateTime date) {
 		
-		 ///////////////////////////   siehe Testing/Testingja
+		TreeMap<String, Lerndokument> resultmapTime = new TreeMap<>();   
+		
+		LocalDateTime ausarbeitungenSeit = date;
+		if (ausarbeitungenSeit != null)  {
+		ausarbeitungen.forEach(
+				(k,v) -> {if (v.gibDatum().isAfter(ausarbeitungenSeit)) resultmapTime.put(k,v);});
+		} else {
+			throw new NullPointerException ("Es wurde kein zulässiges Datum eingegeben");
+		}
+			
+		return resultmapTime;
+		
 	}
+	
 		
 	/*
 	 * Gibt eine gesuchte Ausarbeitung wieder
