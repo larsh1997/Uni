@@ -112,6 +112,15 @@ public class Lerndokument {
 	 * Trägt eine Ausarbeitung ein
 	 * 
 	 */
+	/*public void ausarbeitungEintragen(Lerndokument ausa) {
+		
+		if (ausa.kategorie != Kategorie.AUSARBEITUNG) {
+			throw new IllegalArgumentException("Das Lerndokument ist nicht vom Typen Ausarbeitung");
+		}
+		
+		ausarbeitungen.put(ausa.gibName(), ausa);
+	
+	}*/
 	public void ausarbeitungEintragen(Lerndokument ausa) {
 		
 		if (ausa.kategorie != Kategorie.AUSARBEITUNG) {
@@ -121,6 +130,7 @@ public class Lerndokument {
 		ausarbeitungen.put(ausa.gibName(), ausa);
 	
 	}
+	
 	
 	
 	/*

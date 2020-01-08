@@ -175,9 +175,9 @@ public class Lehrveranstaltungen {
 	 * 
 	 * @return					Lerndokument zur Arbeitung
 	 */
-	public Lerndokument findeLerndokumentZurAusarbeitung(Lerndokument ausa) {
+	/*public Lerndokument findeLerndokumentZurAusarbeitung(Lerndokument ausa) {
 		
-	}
+	}*/
 
 	
 }

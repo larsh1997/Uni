@@ -8,9 +8,20 @@ package storage;
  */
 
 public enum Kategorie {
-	SKRIPT,
-	KLAUSUR,
-	UEBUNGSBLATT,
-	AUSARBEITUNG
+	SKRIPT("Vorlesungsskript"),
+	KLAUSUR("Klausur"),
+	UEBUNGSBLATT("Übungsblatt"),
+	AUSARBEITUNG("Ausarbeitung zu einem Lerndokument");
+	
+	private final String kategorietext;
+	
+	Kategorie(String text){
+		kategorietext = text;
+	}
+	
+	@Override
+	public String toString() {
+		return kategorietext;
+	}
 
 }
