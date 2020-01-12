@@ -23,9 +23,8 @@ public class Lehrveranstaltungen {
 		lerndokumente = new TreeMap();
 	}
 	
-	
-	
-	
+
+
 	/*
 	 * Gibt Namen der Lehrveranstaltung wieder
 	 * @return 		Name der Lehrveranstaltung

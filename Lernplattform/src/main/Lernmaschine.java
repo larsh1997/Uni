@@ -28,6 +28,7 @@ public class Lernmaschine {
 		System.out.println(oby.gibFormat());
 		System.out.println(oby.gibKategorie());
 		
+		
 
 	}
 
