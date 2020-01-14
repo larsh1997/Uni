@@ -11,7 +11,8 @@ public enum Format {
 	PDF("PDF-Format"),
 	WORD("Word-Format"),
 	TEXT("Text-Format"),
-	HTML("HTML-Format");
+	HTML("HTML-Format"),
+	URL("URL");
 	
 	private final String formatext;
 	

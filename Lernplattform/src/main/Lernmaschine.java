@@ -1,11 +1,8 @@
 package main;
 
-import java.util.TreeMap;
+import storage.*;
+import ui.*;
 
-import storage.Format;
-import storage.Kategorie;
-import storage.Lehrveranstaltungen;
-import storage.Lerndokument;
 
 /*
  * @author Lars Hansmann
@@ -17,17 +14,11 @@ public class Lernmaschine {
 
 	public static void main(String[] args) {
 		
-		Lehrveranstaltungen test = new Lehrveranstaltungen("Mathe");
+		Speicherschnittstelle db = new Datenbank_Datei();
+		Benutzerschnittstelle bs = new Textschnittstelle(db);
 		
-		String x = test.gibName();
-		System.out.println(x);
 		
-		Lerndokument oby = new Lerndokument("SD", Kategorie.SKRIPT, "C:", Format.WORD);
-		System.out.println(oby.gibName());
-		System.out.println(oby.gibSpeicherort());
-		System.out.println(oby.gibFormat());
-		System.out.println(oby.gibKategorie());
-		
+		bs.start();
 		
 
 	}

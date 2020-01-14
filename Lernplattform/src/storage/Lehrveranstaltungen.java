@@ -40,10 +40,10 @@ public class Lehrveranstaltungen {
 	 * @para	Lerndokument 	
 	 * 
 	 */
-	public void lerndokumentEintragen(Lerndokument ld) {
+	public Lerndokument lerndokumentEintragen(Lerndokument ld) {
 		
 		assert ld != null;
-		lerndokumente.put(ld.gibName(), ld);  //ld.gibName() = key, ld = value;
+		return(lerndokumente.put(ld.gibName(), ld));  //ld.gibName() = key, ld = value;
 	}
 	
 	/*
@@ -94,6 +94,7 @@ public class Lehrveranstaltungen {
 		
 		return lerndokumente;
 	}
+	
 	
 	
 	
@@ -177,6 +178,17 @@ public class Lehrveranstaltungen {
 	/*public Lerndokument findeLerndokumentZurAusarbeitung(Lerndokument ausa) {
 		
 	}*/
+	
+	/*
+	 * Ist die Lehrveranstaltungen mit dem gegebenen Namen vorhanden
+	 * 
+	 * @para	String		Name der gesuchten Lehrveranstaltung
+	 * 
+	 * @return 				true/false
+	 */
+	public boolean istLehrveranstaltungVorhanden(String name) {
+		return lerndokumente.containsKey(name);
+	}
 
 	
 }
