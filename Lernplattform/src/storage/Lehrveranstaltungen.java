@@ -79,7 +79,7 @@ public class Lehrveranstaltungen {
 	 * 
 	 * @return			Das Dokumente mit dem gegebenem Namen, oder null, falls nicht vorhanden  
 	 */
-	public Lerndokument gibtLerndokument(String name)
+	public Lerndokument gibLerndokument(String name)
 	{
 		return lerndokumente.get(name);
 	}

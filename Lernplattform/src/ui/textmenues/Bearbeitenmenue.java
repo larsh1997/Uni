@@ -2,12 +2,15 @@ package ui.textmenues;
 
 public enum Bearbeitenmenue implements Menuefunktionen  {
 
-	ANZEIGEN("a", "Dokument anzeigen"),
-	BEWERTEN("b", "Dokument bewerten"),
-	AENDERN("s", "Speicherort ändern"),
-	AKTUALISIEREN("d", "Änderungsdatum aktualisieren"),
-	ZURUECK("z", "zurück zum Auswahlmenü");
 	
+	  EINTRAG_ANZEIGEN	 	( "p", "Dokumentparameter anzeigen"),
+	  AUFRUFEN 	  			( "a", "Dokumentbetrachter aufrufen"),
+	  BEWERTEN		   	    ( "b", "Bewertung eintragen"),
+	  DATUM_AKTUALISIEREN 	("d", "Änderungsdatum aktualsilisieren"),
+	  SPEICHERORT_AENDERN 	("s", "Speicherort ändern"),
+	  ZURUECK				("z", "zurück zum Auswahlmenü");
+	 
+
 	
 	private final String funktionscode;
 	private final String funktionstext;

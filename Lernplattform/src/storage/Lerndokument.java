@@ -121,14 +121,14 @@ public class Lerndokument {
 		ausarbeitungen.put(ausa.gibName(), ausa);
 	
 	}*/
-	public void ausarbeitungEintragen(Lerndokument ausa) {
+	public Lerndokument ausarbeitungEintragen(Lerndokument ausa) {
 		
 		if (ausa.kategorie != Kategorie.AUSARBEITUNG) {
 			throw new IllegalArgumentException("Das Lerndokument ist nicht vom Typen Ausarbeitung");
-		}
+		} else {
 		
-		ausarbeitungen.put(ausa.gibName(), ausa);
-	
+		return(ausarbeitungen.put(ausa.gibName(), ausa));
+		}
 	}
 	
 	
@@ -186,6 +186,11 @@ public class Lerndokument {
 	  */ 
 	 public void bewerte (int anzahlSterne) {
 		 anzahlBewertungen++;
+		 if (anzahlSterne > 5) {
+			 anzahlSterne = 5;
+		 } else if (anzahlSterne < 0) {
+			 anzahlSterne = 0;
+		 }
 		 bewertung = (bewertung + anzahlSterne)/anzahlBewertungen;
 		
 	 }

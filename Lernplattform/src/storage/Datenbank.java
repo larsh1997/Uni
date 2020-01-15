@@ -16,6 +16,7 @@ public class Datenbank implements Speicherschnittstelle {
 	 */
 	
 	protected TreeMap<String, Lehrveranstaltungen> lehrveranstaltungen = new TreeMap<>();
+	String dateiname;
 	
 	
 
@@ -39,10 +40,32 @@ public class Datenbank implements Speicherschnittstelle {
 	public int  gibAnzahlLehrveranstaltungen() {
 		return lehrveranstaltungen.size();
 	}
-	
-	
+	/*
+	 * ÷ffnet die Datei und liest die serialisierte TreeMap ein
+	 */
+	@SuppressWarnings("unchecked")
 	public void leseDatenEin() throws Exception {
-		//nichts wird eingelesen
+		FileInputStream fis = new FileInputStream(dateiname);
+		//Objektleser erzeugen
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		
+		lehrveranstaltungen = (TreeMap<String, Lehrveranstaltungen>) ois.readObject();
+		ois.close();
+	}
+	
+	
+	/*
+	 * Speichert in Serialisierte TreeMap in einer Datei (Alle Lehrveranstaltungen)
+	 */
+	public void speichereDaten() throws Exception {
+		 //÷ffnen der Datendatei
+		FileOutputStream fos = new FileOutputStream(dateiname);
+		//Objektserialisierer erzeugen
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		//TreeMap-Objekt in die Datei schreiben
+		oos.writeObject(lehrveranstaltungen);
+		//Datei Schlieﬂen
+		oos.close();
 	}
 
 	/*
@@ -51,27 +74,49 @@ public class Datenbank implements Speicherschnittstelle {
 	@Override
 	public Lerndokument ausarbeitungAnlegen(Lehrveranstaltungen lv, Lerndokument ld, Lerndokument ausa)
 			throws Exception {
-		return ld.ausarbeitungEintragen(ausa);
+		Lerndokument ldreturned = ld.ausarbeitungEintragen(ausa);
+		
+		speichereDaten();
+		return ldreturned;
 	}
 
 	
 	public Lerndokument ausarbeitungLoeschen(Lehrveranstaltungen lv, Lerndokument ld, Lerndokument ausa)
 			throws Exception {
-		return ld.gibAusarbeitungen().remove(ausa.gibName());
+		
+		Lerndokument ldreturned = ld.gibAusarbeitungen().remove(ausa.gibName());
+		
+		speichereDaten();
+		return ldreturned;
+		//return ld.gibAusarbeitungen().remove(ausa.gibName());
 	}
 
 	
 	public Lerndokument lerndokumentAnlegen(Lehrveranstaltungen lv, Lerndokument ld) throws Exception {
-		return lv.lerndokumentEintragen(ld);
+		
+		Lerndokument ldreturend = lv.lerndokumentEintragen(ld);
+		
+		speichereDaten();
+		return ldreturend;
+		//return lv.lerndokumentEintragen(ld);
 	}
 
 	
 	public Lerndokument lerndokumentloeschen(Lehrveranstaltungen lv, Lerndokument ld) throws Exception {
-		return lv.gibLerndokumente().remove(ld.gibName());
+		Lerndokument ldreturend = lv.gibLerndokumente().remove(ld.gibName());
+		
+		speichereDaten();
+		return ldreturend;
+		//return lv.gibLerndokumente().remove(ld.gibName());
 	}
 
 	
 	public Lehrveranstaltungen lehrveranstaltungAnlegen(Lehrveranstaltungen lv) throws Exception {
+		/*Lehrveranstaltungen lvreturend = lehrveranstaltungen.put(lv.gibName(), lv);
+		
+		speichereDaten();
+		return lvreturend;
+		*/
 		return lehrveranstaltungen.put(lv.gibName(), lv);
 	}
 
