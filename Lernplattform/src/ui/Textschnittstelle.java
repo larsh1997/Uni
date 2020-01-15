@@ -53,7 +53,7 @@ public class Textschnittstelle extends Benutzerschnittstelle  {
 			break;
 			case ANZEIGEN: Lehrveranstaltungen lv = LehrveranstalungAuswaehlen();
 						   if (lv == null) return; //Exit 
-						   System.out.println("Alle Lerndokumente deer Lehrveranstaltung " + lv.gibName() + ":");
+						   System.out.println("Alle Lerndokumente der Lehrveranstaltung " + lv.gibName() + ":");
 						   lv.gibLerndokumente().forEach((k, v) -> lerndokumentAnzeigen(v));
 			break;
 			case AUSWAEHLEN: auswahlMenueZeigen();
@@ -65,6 +65,12 @@ public class Textschnittstelle extends Benutzerschnittstelle  {
 	}
 	
 	
+	private void lehrveranstaltungEintragen() {
+		
+		
+	}
+
+
 	public void eintragenMenueZeigen() {
 		do {
 			Menuefunktionen.titelAusgeben("Informationen eintragen");
@@ -83,6 +89,24 @@ public class Textschnittstelle extends Benutzerschnittstelle  {
 	}
 
 	
+	private void lerndokumentEintragen() {
+		
+		do { 
+			System.out.println("Bitte wählen sie eine Lehrveranstaltung aus: ");
+			Lehrveranstaltungen lv = LehrveranstalungAuswaehlen();
+			if (lv == null) return;
+			lv.forEach((k,v) -> System.out.println(k));
+			String lvname = Menuefunktionen.fragen("Bitte geben sie den Name der Lehrveranstaltung ein: ", 0); 
+			String lvformat = Menuefunktionen.fragen("Welches Format hat das Dokument? ", 0);
+			
+			
+			
+			
+		}
+		
+	}
+
+
 	public void loeschenMenueZeigen() {
 		do {
 			Menuefunktionen.titelAusgeben("Informationen löschen");
@@ -221,7 +245,7 @@ public class Textschnittstelle extends Benutzerschnittstelle  {
 	
 	
 	
-	private Lerndokument nachBewertungAuswaehlen(Lehrveranstaltung lv) {
+	private Lerndokument nachBewertungAuswaehlen(Lehrveranstaltungen lv) {
 		
 		boolean eingabe_ok = false;
 		int mindestbewertung = 0;
@@ -263,13 +287,6 @@ public class Textschnittstelle extends Benutzerschnittstelle  {
 	
 	private void bearbeitenMenueZeigen(Lehrveranstaltungen lv, Lerndokument ld) {
 		if (ld == null) return;
-		/*
-		 * 	ANZEIGEN("a", "Dokument anzeigen"),
-	BEWERTEN("b", "Dokument bewerten"),
-	AENDERN("s", "Speicherort ändern"),
-	AKTUALISIEREN("d", "Änderungsdatum aktualisieren"),
-	ZURUECK("z", "zurück zum Auswahlmenü");
-		 */
 		
 		do {
 			Menuefunktionen.titelAusgeben("Lerndokument " +ld.gibName() +" bearbeiten");

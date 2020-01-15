@@ -9,7 +9,7 @@ import java.time.*;
  * @version 18.12.2019
  * 
  */
-public class Lerndokument {
+public class Lerndokument implements java.io.Serializable {
 	//Attribute
 	
 	private String 			name;

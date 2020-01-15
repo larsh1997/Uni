@@ -7,7 +7,7 @@ import java.time.*;
  */
 import java.time.format.DateTimeFormatter;
 
-public class Lehrveranstaltungen {
+public class Lehrveranstaltungen implements java.io.Serializable{
 	
 	private String name;
 	private TreeMap<String, Lerndokument> lerndokumente;  //Name des Dokumentes verweist auf ein Dokument Schlüssel/Wertpaar
